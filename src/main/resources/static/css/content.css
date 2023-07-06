@@ -1,0 +1,173 @@
+@charset "UTF-8";
+
+td.contentbox{
+	height: 540px;
+}
+ td.contenttext{
+ 	font-size: 20px;
+ 	font-family: HMKMRHD;
+ 	font-weight: bold;
+ 	color: #867070;
+ 	text-align: right;
+ }
+ textarea.textareabox{
+ 	border: 1px solid #867070;
+ 	background-color: #ffffff;
+ 	width : 250px;
+ 	font-family: arial;
+ 	font-size: 20px;
+ 	color:#867070;
+ 	padding: 5px;
+ }
+ td.main_text{
+ 	text-align: left;
+ 	font-size: 20px;
+ 	font-family: HMKMRHD;
+ 	font-weight: bold;
+ }
+ input.inputbox01{
+ 	border: 1px solid #867070;
+ 	background-color: #ffffff;
+ 	width : 250px;
+ 	font-family: arial;
+ 	font-size: 20px;
+ 	color:#867070;
+ 	padding: 5px;
+ 	border-radius: 5px;
+ }
+input.contentbtn01{
+	border: 2px solid red;
+	background-color: red;
+	width : 180px;
+	height: 40px;
+	font-family: HMKMRHD;
+	font-size: 20px;
+	padding: 5px;
+	color: white;
+	border-radius: 5px;
+	margin-top: 60px;
+}
+
+input.contentbtn02{
+	border: 2px solid red;
+	background-color: red;
+	width : 120px;
+	height: 40px;
+	font-family: HMKMRHD;
+	font-size: 20px;
+	padding: 5px;
+	color: white;
+	border-radius: 5px;
+}
+input.contentbtn01:hover{
+	cursor: pointer;
+}
+input.contentbtn02:hover{
+	cursor: pointer;
+}
+input.contentbtn03:hover{
+	cursor: pointer;
+}
+
+input.contentbtn03{
+	border: 2px solid red;
+	background-color: red;
+	width : 120px;
+	height: 40px;
+	font-family: HMKMRHD;
+	font-size: 20px;
+	padding: 5px;
+	color: white;
+	border-radius: 5px;
+	margin-left: 20px;
+}
+
+.outterdiv {
+	width: 80%;
+	height: 750px;
+	margin: 0 auto;
+}
+
+.innerdiv {
+	width: 40%;
+	margin: 0 auto;
+	color: #5c5f66;
+	line-height: 18px;
+	border: 1px solid #000000;
+	margin-top: 100px;
+	background-color: #fff5f5;
+	border: 1px solid #dee6ec;
+	font-size: 14px;
+	padding: 20px 40px;
+}
+
+.userid {
+	color: blue;
+	width: 50%;
+	font-size: 32px;
+}
+
+.content {
+    border-top: 1px dashed #cecece;
+    border-bottom: 1px dashed #cecece;
+    padding: 20px 0;
+    margin: 30px 0 20px;
+}
+
+.innertitle {
+    color: #f4605e;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 40px;
+}
+
+.insContent {
+    list-style: none;
+}
+
+.insContent > li {
+    display: table;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.insContent span.insSubject {
+    width: 65px;
+    font-weight: 600;
+    padding-right: 25px;
+}
+
+.insContent > li > span {
+    display: table-cell;
+    vertical-align: top;
+}
+
+.innerdiv > p {
+	padding-left: 40px;
+}
+
+.innerdiv > h3 {
+	text-align: center;
+	line-height: 50px;
+}
+
+.CheckOk {
+	text-align: center;
+}
+
+.price {
+	font-size: 20px;
+}
+
+#CheckOkbutton {
+	border: 2px solid red;
+	background-color: red;
+	width : 180px;
+	height: 40px;
+	font-family: HMKMRHD;
+	font-size: 20px;
+	padding: 5px;
+	color: white;
+	border-radius: 5px;
+	margin: 30px 0 30px 0;
+}

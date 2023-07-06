@@ -1,0 +1,194 @@
+@charset "UTF-8";
+
+section {
+    border: 1px solid #dee6ec;
+    padding: 20px;
+}
+
+.l-ct {
+    display: block;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+section.vehicleSection > .vehicleTable {
+    display: block;
+    width: 100%;
+}
+
+section.vehicleSection > .vehicleTable > .vehicleCell {
+    display: table-cell;
+    vertical-align: top;
+    min-height: 330px;
+}
+
+section.vehicleSection .vehicleThum {
+    width: 505px;
+}
+
+section.vehicleSection .vehicleInfo {
+    background-color: #f8f7f9;
+    width: 750px;
+}
+
+.carimg {
+    width: 100%;
+    height: 330px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+section.vehicleSection ul.vehicleContent {
+    margin: 7px 25px;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+section.vehicleSection ul.vehicleContent > li {
+    width: 100%;
+    display: table;
+    padding: 3px 0;
+}
+
+section.vehicleSection ul.vehicleContent > li:not(:nth-child(1)) {
+    border-top: 1px dashed #cecece;
+}
+
+section.vehicleSection ul.vehicleContent .vehicleSubject {
+    font-weight: 600;
+    width: 115px;
+}
+
+section.vehicleSection ul.vehicleContent > li > span {
+    display: table-cell;
+    line-height: 34px;
+    color: #404040;
+    font-size: 14px;
+}
+
+h1.goodsSectionTitle {
+    color: #404040;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 30px;
+    margin-top: 32px;
+    margin-bottom: 15px;
+}
+
+.l-ct {
+    display: block;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+section.vehicleSection {
+    border: 1px solid #dee6ec;
+    padding: 20px;
+}
+
+h1.goodsSectionTitle > span {
+    color: #ec2a1c;
+}
+
+.app {
+	margin-bottom: 60px;
+}
+
+select {
+	width: 170px;	
+}
+
+.buttonformbox {
+	display: block;	
+}
+
+.buttons {
+	background-color: #ec2a1c;
+	border-radius: 5px;
+	border-color: #ec2a1c;
+	margin-top: 10px;
+	float: right;
+	color: #ffffff;
+	font-size: 14px;
+	padding: 8px 22px;
+}
+
+.buttons1 {
+	background-color: #ec2a1c;
+	border-radius: 5px;
+	border-color: #ec2a1c;
+	margin-top: 30px;
+	float: right;
+	color: #ffffff;
+	font-size: 14px;
+	padding: 8px 22px;
+}
+
+#carprice {
+	position: relative;
+ 	top: -70px;
+}
+
+textarea {
+	margin-top: 15px;
+}
+
+.topimg img {
+	display: block;
+    width: 100%;
+    margin: 0 auto;
+    height: 300px;
+}
+
+select {
+	height: 22px;
+}
+
+label {
+	font-size: 10px;
+	margin-left: 10px;
+}
+
+.inputlabel {
+	background-color: #ec2a1c;
+	border-radius: 5px;
+	border-color: #ec2a1c;
+	color: #ffffff;
+	font-size: 12px;
+	padding: 4px 12px;
+}
+
+.urltext {
+	margin-left: 110px;
+}
+
+.gotoreservation {
+	display: flex;
+	align-items: center;
+}
+
+.reservationbutton {
+	background-color: #ec2a1c;
+	border-radius: 5px;
+	border-color: #ec2a1c;
+	float: right;
+	color: #ffffff;
+	font-size: 14px;
+	padding: 6px 10px;
+	margin-top: -45px;
+	margin-right: 970px;
+}
+
+.reservationback {
+	background-color: #ec2a1c;
+	border-radius: 5px;
+	border-color: #ec2a1c;
+	float: right;
+	color: #ffffff;
+	font-size: 14px;
+	margin-top: 10px;
+	line-height: 20px;
+}

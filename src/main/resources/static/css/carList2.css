@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+.container {
+	display: block;
+    width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 100px;
+}
+
+a:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+.listtype {
+    display: table-cell;
+    width: 120px;    
+    text-align: center;
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 35px;
+    background-color: red;
+    position: relative;
+    cursor: pointer;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+.carlist {
+	width: 1200px;
+	border-spacing: 0 8px;
+}
+
+
+.listMenuTabs {
+	width: 1200px;
+}
+
+.carlistline {
+	background-color:  #ced9e3;
+	text-align: center;
+	color: #3e3e3e;
+	line-height: 40px;
+}
+
+.carlistheadline {
+	background-color: #aebfd0;
+	text-align: center;
+	color: #3e3e3e;
+	line-height: 40px;
+}
+
+.carlistprice {
+	text-align: right;;
+	padding-right: 46px;
+}
+
+.count {
+	color: red;
+}
+
+#caradd {
+	background-color: red;
+	margin-left: 195px;
+}
+
+h1 {
+	text-align: center;
+	color: red;
+}
+
+.body-wrapper {
+    min-height: 100%;
+    position: relative;
+    width: 100%
+}
+
+footer {
+    width: 100%;
+    height: 300px;
+    position: absolute;  
+    bottom: 0;
+    left: 0;
+}
+
+#carlistline:hover {
+	color:red;
+}
+
+.topimg img {
+	display: block;
+    width: 100%;
+    margin: 0 auto;
+    height: 300px;
+}
+
+.pagetable {
+    width: 400px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+
+.pagetd {
+	width: 14%;
+	font-size: 22px;
+	padding: 10px 20px;
+}
+
+.lookpage {
+	color: white;
+	background-color: #aebfd0;
+	padding: 0px 8px;
+}
+
+.pagebutton {
+	color: black;	
+}

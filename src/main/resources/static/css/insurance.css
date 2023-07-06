@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+
+.l-ct {
+    display: block;
+    width: 1000px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 25px;
+}
+
+.information {
+	font-size:14pt;
+	background-color:rgb(255,255,255);
+	color:rgb(0,0,0);
+}
+
+.level_01 {
+    width: 1000px;
+    color: rgb(61,80,174);
+    font-size: 1.5em;
+    margin-left: 1px;
+    border-bottom: 2px solid rgb(115,115,115);
+    padding-bottom: 0.3em;
+    font-family: 'Malgun Gothic', '맑은 고딕';
+    font-style: normal;
+    letter-spacing: normal;
+    text-indent: 0px;
+    text-transform: none;
+    white-space: normal;
+    word-spacing: 0px;
+    background-color: rgb(255,255,255);
+    margin-top: 60px;
+}
+
+.level_01_01 {
+    width: 1000px;
+    color: rgb(46,46,46);
+    font-size: 1.1em;
+    margin-left: 1px;
+    font-weight: bold;
+    margin-top: 1em;
+    text-align: left;
+    margin-bottom: 2em;
+    font-family: 'Malgun Gothic', '맑은 고딕';
+    font-style: normal;
+    letter-spacing: normal;
+    text-indent: 0px;
+    text-transform: none;
+    white-space: normal;
+    word-spacing: 0px;
+    background-color: rgb(255,255,255);
+}
+
+.level_02_01 {
+	margin-bottom: 80px;
+}
+
+.no_liability{
+	color: rgb(255,0,0);
+}
+
+.no_liability_list {
+	padding: 0px;
+    margin: 0px 0px 0px 35px;
+}
+
+.liststyle {
+    padding: 0px;
+    margin: 0px 0px 0px 30px;
+    list-style: decimal;
+    font-size: 10pt;
+    line-height: 35px;
+}

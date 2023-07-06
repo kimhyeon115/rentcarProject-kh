@@ -1,0 +1,276 @@
+@charset "UTF-8";
+
+body {
+    line-height: 1;
+}
+
+div {
+	display: block;
+}
+
+.l-ct {
+    display: block;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+h2.guideTitle {
+    margin: 30px 0 35px;
+    display: inline-block;
+    width: 100%;
+    border-bottom: 2px solid #222222;
+    line-height: 42px;
+    padding: 0 0 12px 4px;
+    color: #606060;
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: -1.5px;
+}
+
+.guideStep > .stepSubject > span {
+    color: #db252f;
+}
+
+.guideStep > .stepSubject {
+    color: #606060;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+.guideStep > ul {
+    display: inline-block;
+    margin: 25px 0;
+}
+
+.contents {
+    margin-top: 30px;
+}
+
+table.guideTable {
+    width: 100%;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table.guideTable thead th, table.guideTable tbody td, table.guideTable tbody td {
+    color: #808080;
+    padding-left: 15px;
+    text-align: left;
+    word-break: keep-all;
+}
+
+table.guideTable thead th {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 60px;
+    background-color: #f1f4f7;
+    border-top: 1px solid #dadada;
+    border-bottom: 1px solid #dadada;
+}
+
+table.guideTable tbody td:nth-child(1) {
+    border-left: none;
+}
+
+table.guideTable thead th, table.guideTable tbody td, table.guideTable tbody td {
+    color: #808080;
+    padding-left: 15px;
+    text-align: left;
+    word-break: keep-all;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 20px;
+    margin-inline-end: 0px;
+}
+
+table.guideTable tbody td > p {
+    word-break: keep-all;
+}
+
+table.guideTable tbody td span.point {
+    font-weight: 600;
+}
+
+table.guideTable tbody td {
+    font-size: 15px;
+    line-height: 26px;
+    padding: 20px 0;
+}
+
+table.guideTable tbody td {
+    border-left: 1px dashed #dadada;
+}
+
+ul.guideInfo {
+    display: table;
+    width: 100%;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+ul.guideInfo > li {
+    display: table-row;
+}
+
+ul.guideInfo span.infoSubject {
+    color: #db252f;
+    width: 120px;
+    border-right: 1px dashed #dadada;
+}
+ul.guideInfo > li > span {
+    display: table-cell;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 26px;
+    padding: 13px 0;
+}
+
+ul.guideInfo span.infoContent {
+    color: #808080;
+    padding-left: 25px !important;
+}
+
+ul.guideInfo > li:not(:nth-child(1)) > span {
+    border-top: 1px dashed #dadada;
+}
+
+.guideStep > ul > li {
+    display: inline-block;
+    width: 254px;
+    height: 214px;
+    vertical-align: top;
+    background-color: #fff;
+    border: 1px solid #dadada;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.guideStep > ul > li > i {
+    font-size: 40px;
+    color: #404040;
+    display: block;
+    margin: 15px auto 0;
+}
+
+.guideStep > ul > li > p {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -1px;
+    color: #404040;
+    line-height: 30px;
+    margin-top: 5px;
+}
+
+[class^="used-icon-"], [class*="used-icon-"] {
+    background-image: url(/resources/img/use_icons2.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    width: 110px;
+    height: 110px;
+}
+
+.guideStep > ul > li:not(:nth-child(1)) {
+    margin-left: 37px;
+}
+
+.used-icon-1 {
+    background-position: 24px 24px;
+}
+
+.used-icon-2 {
+    background-position: 24px -88px;
+}
+
+.used-icon-3 {
+    background-position: 24px -200px;
+}
+
+.used-icon-4 {
+    background-position: 24px -320px;
+}
+
+.used-icon-5 {
+    background-position: -152px 24px;
+}
+
+.used-icon-6 {
+    background-position: -152px -88px;
+}
+
+.used-icon-7 {
+    background-position: -152px -200px;
+}
+
+.used-icon-8 {
+    background-position: -152px -320px;
+}
+
+element.style {
+    color: #ff0000;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.guideRefund > p.subject {
+    color: #404040;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+}
+
+.guideRefund > .equipment-content {
+    color: #808080;
+    border: 1px solid #dadada;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.equipment-content {
+    counter-reset: section;
+    display: block;
+    clear: both;
+    width: 100%;
+}
+
+.equipment-content > p {
+    color: #808080;
+    font-size: 18px;
+    line-height: 36px;
+    margin-left: 20px;
+}
+
+element.style {
+    padding: 0px;
+    border: 0px;
+    display: grid;
+}
+
+.equipment-content ul {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+.equipment-content ul li {
+    float: left;
+    width: 300px;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 20px;
+    border: 1px solid #dadada;
+}
+
+.equipment-content > p {
+	line-height: 30px;
+}

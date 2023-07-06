@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rlagus.rentcar.dao.IDao">
+<!-- 회원관리 관련 SQL -->
+	<insert id="joinDao">
+		insert into rMember(rid, rpw, rname, rmobile, remail) values (#{param1}, #{param2}, #{param3}, #{param4}, #{param5})
+	</insert>
+	<select id="checkIdDao" resultType="int">
+		select count(*) from rMember where rid = #{param1}
+	</select>
+	<select id="loginOkDao" resultType="int">
+		select count(*) from rMember where rid = #{param1} and rpw = #{param2}
+	</select>
+	<select id="showInfoDao" resultType="com.rlagus.rentcar.dto.MemberDto">
+		select * from rMember where rid = #{param1}
+	</select>
+	<update id="modifyOkDao">
+		update rMember set rpw = #{param2}, rname = #{param3}, rmobile = #{param4}, remail = #{param5} where rid= #{param1}
+	</update>
+	<delete id="MemberDeleteDao">
+		delete from rMember where rid=#{param1}
+	</delete>	
+	
+<!-- 문의게시판 글 관련 SQL -->
+	<insert id="boardWriteDao">
+		insert into rUserboard (rbnum, rid, rbtitle, rbcontent, rbhit, rbreplycount) 
+			values
+				(rbnum_seq.nextval, #{param1}, #{param2}, #{param3}, 0, 0)
+	</insert>
+	<select id="userBoardListDao" resultType="com.rlagus.rentcar.dto.UserBoardDto">
+		SELECT * FROM 
+ 			(SELECT A.*, FLOOR((ROWNUM-1)/#{param1}+1)PAGE, ROWNUM 
+ 				FROM 
+ 					(SELECT * FROM rUserboard ORDER BY rbnum DESC)A)
+ 						WHERE PAGE=#{param2}
+	</select>
+	<select id="userBoardViewDao" resultType="com.rlagus.rentcar.dto.UserBoardDto">
+		select * from rUserboard where rbnum = #{param1}
+	</select>
+	<delete id="userBoardDelete">
+		delete rUserboard where rbnum = #{param1}
+	</delete>
+	<select id="totalListcount" resultType="int">
+		select count(*) from rUserboard
+	</select>
+	<select id="userListSearchTitleDao" resultType="com.rlagus.rentcar.dto.UserBoardDto">
+		SELECT * FROM 
+ 			(SELECT A.*, FLOOR((ROWNUM-1)/#{param1}+1)PAGE, ROWNUM 
+ 				FROM 
+ 					(SELECT * FROM rUserboard where rbtitle Like '%' || #{param3} || '%' ORDER BY rbnum DESC)A)
+ 						WHERE PAGE=#{param2}
+	</select>
+	<select id="userListSearchIdDao" resultType="com.rlagus.rentcar.dto.UserBoardDto">
+		SELECT * FROM 
+ 			(SELECT A.*, FLOOR((ROWNUM-1)/#{param1}+1)PAGE, ROWNUM 
+ 				FROM 
+ 					(SELECT * FROM rUserboard where rid Like '%' || #{param3} || '%' ORDER BY rbnum DESC)A)
+ 						WHERE PAGE=#{param2}
+	</select>
+	<select id="userListSearchContentDao" resultType="com.rlagus.rentcar.dto.UserBoardDto">
+		SELECT * FROM 
+ 			(SELECT A.*, FLOOR((ROWNUM-1)/#{param1}+1)PAGE, ROWNUM 
+ 				FROM 
+ 					(SELECT * FROM rUserboard where rbcontent Like '%' || #{param3} || '%' ORDER BY rbnum DESC)A)
+ 						WHERE PAGE=#{param2}
+	</select>
+	<select id="userListSearchTitleCountDao" resultType="int">
+		select count(*) from rUserboard where rbtitle Like '%' || #{param1} || '%'
+	</select>
+	<select id="userListSearchIdCountDao" resultType="int">
+		select count(*) from rUserboard where rid Like '%' || #{param1} || '%'
+	</select>
+	<select id="userListSearchContentCountDao" resultType="int">
+		select count(*) from rUserboard where rbcontent Like '%' || #{param1} || '%'
+	</select>
+	<update id="userBoardModifyDao">
+		update rUserboard set rbtitle = #{param2}, rbcontent = #{param3} where rbnum = #{param1}
+	</update>
+	<update id="userBoardUpHit">
+		update rUserboard set rbhit = rbhit+1 where rbnum = #{param1}
+	</update>
+<!--문의게시판 댓글 관련 SQL -->	
+	<insert id="replyWriteDao">
+		insert into rUserreply (rrnum, rbnum, rid, rrcontent) 
+			values
+				(rrbnum_seq.nextval, #{param1}, #{param2}, #{param3})
+	</insert>
+	<select id="userReplyListDao" resultType="com.rlagus.rentcar.dto.UserreplyDto">
+		select * from rUserreply where rbnum = #{param1} ORDER BY rbnum
+	</select>
+	<update id="replyCountUpDao">
+		update rUserboard set rbreplycount=rbreplycount+1 where rbnum = #{param1}
+	</update>
+	<update id="replyCountDownDao">
+		update rUserboard set rbreplycount=rbreplycount-1 where rbnum = #{param1}
+	</update>
+	<delete id="replydeleterbnumDao">
+		delete rUserreply where rbnum = #{param1}
+	</delete>
+	<delete id="replydeleterrnumDao">
+		delete rUserreply where rrnum = #{param1}
+	</delete>
+	<update id="replyModifyDao">
+		update rUserreply set rrcontent = #{param2} where rrnum = #{param1}
+	</update>
+	<select id="replyViewDao" resultType="com.rlagus.rentcar.dto.UserreplyDto">
+		select * from rUserreply where rrnum = #{param1}
+	</select>
+	
+	<!-- 자유게시판 글 관련 SQL -->
+	<insert id="freeBoardWriteDao">
+		insert into rfUserboard (rfbnum, rid, rfbtitle, rfbcontent, rfbhit, rfbreplycount) 
+			values
+				(rfbnum_seq.nextval, #{param1}, #{param2}, #{param3}, 0, 0)
+	</insert>
+	<select id="freeBoardListDao" resultType="com.rlagus.rentcar.dto.FreeBoardDto">
+		SELECT * FROM 
+ 			(SELECT A.*, FLOOR((ROWNUM-1)/#{param1}+1)PAGE, ROWNUM 
+ 				FROM 
+ 					(SELECT * FROM rfUserboard ORDER BY rfbnotice DESC, rfbnum DESC)A)
+ 						WHERE PAGE=#{param2}
+	</select>
+	<select id="freeBoardViewDao" resultType="com.rlagus.rentcar.dto.FreeBoardDto">
+		select * from rfUserboard where rfbnum = #{param1}
+	</select>
+	<delete id="freeBoardDelete">
+		delete rfUserboard where rfbnum = #{param1}
+	</delete>
+	<select id="freeTotalListcount" resultType="int">
+		select count(*) from rfUserboard
+	</select>
+	<select id="freeListSearchTitleDao" resultType="com.rlagus.rentcar.dto.FreeBoardDto">
+		SELECT * FROM 
+ 			(SELECT A.*, FLOOR((ROWNUM-1)/#{param1}+1)PAGE, ROWNUM 
+ 				FROM 
+ 					(SELECT * FROM rfUserboard where rfbtitle Like '%' || #{param3} || '%' ORDER BY rfbnotice DESC, rfbnum DESC)A)
+ 						WHERE PAGE=#{param2}
+	</select>
+	<select id="freeListSearchIdDao" resultType="com.rlagus.rentcar.dto.FreeBoardDto">
+		SELECT * FROM 
+ 			(SELECT A.*, FLOOR((ROWNUM-1)/#{param1}+1)PAGE, ROWNUM 
+ 				FROM 
+ 					(SELECT * FROM rfUserboard where rid Like '%' || #{param3} || '%' ORDER BY rfbnotice DESC, rfbnum DESC)A)
+ 						WHERE PAGE=#{param2}
+	</select>
+	<select id="freeListSearchContentDao" resultType="com.rlagus.rentcar.dto.FreeBoardDto">
+		SELECT * FROM 
+ 			(SELECT A.*, FLOOR((ROWNUM-1)/#{param1}+1)PAGE, ROWNUM 
+ 				FROM 
+ 					(SELECT * FROM rfUserboard where rfbcontent Like '%' || #{param3} || '%' ORDER BY rfbnotice DESC, rfbnum DESC)A)
+ 						WHERE PAGE=#{param2}
+	</select>
+	<select id="freeListSearchTitleCountDao" resultType="int">
+		select count(*) from rfUserboard where rfbtitle Like '%' || #{param1} || '%'
+	</select>
+	<select id="freeListSearchIdCountDao" resultType="int">
+		select count(*) from rfUserboard where rid Like '%' || #{param1} || '%'
+	</select>
+	<select id="freeListSearchContentCountDao" resultType="int">
+		select count(*) from rfUserboard where rfbcontent Like '%' || #{param1} || '%'
+	</select>
+	<update id="freeBoardModifyDao">
+		update rfUserboard set rfbtitle = #{param2}, rfbcontent = #{param3} where rfbnum = #{param1}
+	</update>
+	<update id="freeBoardUpHit">
+		update rfUserboard set rfbhit = rfbhit+1 where rfbnum = #{param1}
+	</update>
+	<update id="noticeDao">
+		update rfUserboard set rfbnotice = 1 where rid = #{param1}
+	</update>
+	
+	
+<!--자유게시판 댓글 관련 SQL -->	
+	<insert id="freeReplyWriteDao">
+		insert into rfUserreply (rfrnum, rfbnum, rid, rfrcontent) 
+			values
+				(rfbnum_seq.nextval, #{param1}, #{param2}, #{param3})
+	</insert>
+	<select id="freeReplyListDao" resultType="com.rlagus.rentcar.dto.FreereplyDto">
+		select * from rfUserreply where rfbnum = #{param1} ORDER BY rfbnum
+	</select>
+	<update id="freeReplyCountUpDao">
+		update rfUserboard set rfbreplycount=rfbreplycount+1 where rfbnum = #{param1}
+	</update>
+	<update id="freeReplyCountDownDao">
+		update rfUserboard set rfbreplycount=rfbreplycount-1 where rfbnum = #{param1}
+	</update>
+	<delete id="freeReplydeleterbnumDao">
+		delete rfUserreply where rfbnum = #{param1}
+	</delete>
+	<delete id="freeReplydeleterrnumDao">
+		delete rfUserreply where rfrnum = #{param1}
+	</delete>
+	<update id="freeReplyModifyDao">
+		update rfUserreply set rfrcontent = #{param2} where rfrnum = #{param1}
+	</update>
+	<select id="freeReplyViewDao" resultType="com.rlagus.rentcar.dto.FreereplyDto">
+		select * from rfUserreply where rfrnum = #{param1}
+	</select>
+	
+<!--예약관련 SQL -->
+	<select id="carListTotalDao" resultType="com.rlagus.rentcar.dto.CarDto">
+		select * 
+    		from cartbl 
+       		 left join (select * 
+    						from rReservation
+       								  where rtdate <![CDATA[<=]]> #{param1} and
+                							returndate <![CDATA[>=]]> #{param1} or
+                							rtdate <![CDATA[<=]]> #{param2} and
+               								returndate <![CDATA[>=]]> #{param2})A
+             		on cartbl.cindex = A.cindex
+                		where A.cindex is null
+	</select>
+	<select id="carListClassDao" resultType="com.rlagus.rentcar.dto.CarDto">
+		select * from
+			(select * 
+    			from cartbl 
+       		 		left join (select * 
+    							from rReservation
+       								  where rtdate <![CDATA[<=]]> #{param1} and
+                							returndate <![CDATA[>=]]> #{param1} or
+                							rtdate <![CDATA[<=]]> #{param2} and
+               								returndate <![CDATA[>=]]> #{param2})A
+             			on cartbl.cindex = A.cindex
+                			where A.cindex is null) 
+            where cclass = #{param3} 
+               				 
+	</select>
+	<select id="carinfoDao" resultType="com.rlagus.rentcar.dto.CarDto">
+		select * from cartbl where cindex = #{param1}
+	</select>
+	<insert id="carRentDao">
+		insert into 
+   			rreservation (rtnum, rid, cindex, rtdate, returndate, rpdate, rtprice) 
+    				values (RTNUM_SEQ.nextval, #{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6})
+	</insert>
+	<resultMap type="com.rlagus.rentcar.dto.CarDto" id="carDto">
+		<result property="cindex" column="cindex"/>
+		<result property="cbrend" column="cbrend"/>
+		<result property="cclass" column="cclass"/>
+		<result property="cname" column="cname"/>
+		<result property="ccolor" column="ccolor"/>
+		<result property="coil" column="coil"/>
+		<result property="ctype" column="ctype"/>
+		<result property="price" column="price"/>
+		<result property="cimg" column="cimg"/>
+		<result property="cnote" column="cnote"/>
+	</resultMap>
+	<resultMap type="com.rlagus.rentcar.dto.ReservationDto" id="reservationDto">
+		<result property="rtnum" column="rtnum"/>
+		<result property="rid" column="rid"/>
+		<result property="cindex" column="cindex"/>
+		<result property="rvdate" column="rvdate"/>
+		<result property="rtdate" column="rtdate"/>
+		<result property="returndate" column="returndate"/>
+		<result property="rpdate" column="rpdate"/>
+		<result property="rtprice" column="rtprice"/>
+		<collection property="carDto" resultMap="carDto"></collection>
+	</resultMap>
+	<select id="carRentViewDao" resultType="com.rlagus.rentcar.dto.ReservationDto" resultMap="reservationDto">
+		select * 
+			from rReservation 
+				inner join CARTBL
+					on rReservation.CINDEX = CARTBL.cindex
+						where rid = #{param1}
+							order by rvdate desc
+	</select>
+	
+	<select id="OneMemberRentDateDao" resultType="int">
+		select count(rid) from rreservation where rid=#{param1}
+	</select>
+	
+	<delete id="reservationdeleteDao">
+		delete from rreservation where rtnum = #{param1}
+	</delete>
+	
+	<select id="carRentIndexViewDao" resultType="com.rlagus.rentcar.dto.ReservationDto" resultMap="reservationDto">
+			select * 
+				from rReservation 
+					inner join CARTBL
+						on rReservation.CINDEX = CARTBL.cindex
+							where rtnum = #{param1}
+	</select>
+	
+	<!-- 차량관리 -->
+	<select id="countCarListDao" resultType="int">
+		select count(*)	from cartbl
+	</select>
+	
+	<select id="AllCarListDao" resultType="com.rlagus.rentcar.dto.CarListDto">
+	SELECT * FROM (SELECT A.*, FLOOR((ROWNUM-1)/#{param1}+1)PAGE, ROWNUM 
+		FROM (select c.cindex, c.cbrend, c.cclass, c.cname, c.ccolor, c.coil, c.ctype, c.price, NVL(r.pdate, 0) as pdate
+		   	from cartbl c
+		      	FULL OUTER JOIN (select cindex,sum(returndate - rtdate) as pdate from rreservation group by cindex) r
+		        	on c.cindex = r.cindex order by pdate * c.price desc)A)
+ 						WHERE PAGE=#{param2}
+	</select>
+	<select id="totalcountJSDao" resultType="int">
+		SELECT count(*) 
+		   from cartbl c
+		        FULL OUTER JOIN (select cindex,sum(returndate - rtdate) as pdate from rreservation group by cindex) r
+		            on c.cindex = r.cindex order by pdate * c.price
+ 	</select>
+	
+	<select id="countCarTypeListDao" resultType="int">
+		select count(*)	from cartbl where cclass = #{param1}
+	</select>
+	
+	<select id="CarListDao" resultType="com.rlagus.rentcar.dto.CarListDto">
+		SELECT * FROM (SELECT A.*, FLOOR((ROWNUM-1)/#{param1}+1)PAGE, ROWNUM FROM 
+			(select c.cindex, c.cbrend, c.cclass, c.cname, c.ccolor, c.coil, c.ctype, c.price, NVL(r.pdate, 0) as pdate
+				from cartbl c
+					FULL OUTER JOIN (select cindex,sum(returndate - rtdate) as pdate from rreservation group by cindex) r
+						on c.cindex = r.cindex where cclass = #{param3} 
+		            		order by pdate * c.price desc)A)
+ 								WHERE PAGE=#{param2}
+	</select>	
+	
+	<select id="countCarBrendListDao" resultType="int">
+		select count(*)	from cartbl where cbrend = #{param1}
+	</select>
+	
+	<select id="CarBrendListDao" resultType="com.rlagus.rentcar.dto.CarListDto">
+		SELECT * FROM (SELECT A.*, FLOOR((ROWNUM-1)/#{param1}+1)PAGE, ROWNUM FROM 
+			(select c.cindex, c.cbrend, c.cclass, c.cname, c.ccolor, c.coil, c.ctype, c.price, NVL(r.pdate, 0) as pdate
+				from cartbl c
+					FULL OUTER JOIN (select cindex,sum(returndate - rtdate) as pdate from rreservation group by cindex) r
+						on c.cindex = r.cindex where cbrend = #{param3} 
+		            		order by pdate * c.price desc)A)
+ 								WHERE PAGE=#{param2}
+	</select>
+	
+	<select id="BrendListDao" resultType="com.rlagus.rentcar.dto.CarListDto">
+		select cbrend from cartbl group by cbrend
+	</select>
+	
+	<select id="IndexCarDao" resultType="com.rlagus.rentcar.dto.CarListDto">
+		select * from cartbl where cindex = #{param1}
+	</select>
+	
+	<update id="CarListUpdateDao">	
+		update cartbl set cbrend = #{param2}, cclass = #{param3}, cname = #{param4},
+				ccolor = #{param5}, coil = #{param6}, ctype = #{param7}, price = #{param8}, cimg = #{param9}, cnote = #{param10}
+					where cindex = #{param1}
+	</update>
+	
+	<delete id="CarListDeleteDao">
+		delete from cartbl where cindex = #{param1}
+	</delete>
+	
+	<insert id="AddNewCarDao">
+		insert into cartbl (cindex, cbrend, cclass, cname, ccolor, coil, ctype, price, cimg, cnote)
+				values (cartbl_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4},
+					#{param5}, #{param6}, #{param7}, #{param8}, #{param9})
+	</insert>
+	
+	<!-- 차량예약관리(관리자) -->
+	<select id="AdminReservationListDao" resultType="com.rlagus.rentcar.dto.ReservationDto" resultMap="reservationDto">
+		SELECT * FROM (SELECT A.*, FLOOR((ROWNUM-1)/#{param1}+1)PAGE, ROWNUM 
+				FROM (select r.rtnum, c.cindex, c.cbrend, c.cclass, c.cname, r.rvdate, r.rtdate, r.returndate, r.rtprice
+						from rreservation r inner join cartbl c on r.cindex = c.cindex order by r.rvdate desc)A)
+							WHERE PAGE=#{param2}
+	</select>
+	
+	<select id="AdminReservationCountDao" resultType="int">
+		select count(*)
+			from rreservation r 
+				inner join cartbl c 
+					on r.cindex = c.cindex
+	</select>
+	
+	<select id="AdminReservationIndexDao" resultType="com.rlagus.rentcar.dto.ReservationDto" resultMap="reservationDto">
+		select r.rtnum, c.cimg, c.cindex, c.cbrend, c.cclass, c.cname, r.rvdate, r.rtdate, r.returndate, r.rpdate, r.rtprice,
+			c.ccolor, c.ctype, c.coil, c.cclass, c.cnote, r.rid
+				from rreservation r inner join cartbl c on r.cindex = c.cindex
+                    where r.cindex = #{param2}
+						order by case when r.rtnum = #{param1} then 0 else 1 end, r.rtnum desc
+	</select>
+	
+	<select id="AdminIndexCarListDao" resultType="com.rlagus.rentcar.dto.ReservationDto" resultMap="reservationDto">
+		select r.rtnum, c.cimg, c.cindex, c.cbrend, c.cclass, c.cname, r.rvdate, r.rtdate, r.returndate, r.rpdate, r.rtprice,
+			c.ccolor, c.ctype, c.coil, c.cclass, c.cnote, r.rid
+				from rreservation r inner join cartbl  c on r.cindex = c.cindex
+					where c.cindex = #{param1}
+						order by r.rtnum desc
+	</select>
+	
+	<select id="CountIndexReservationDao" resultType="int">
+		select count(cindex) from rreservation where cindex=#{param1}
+	</select>
+</mapper>

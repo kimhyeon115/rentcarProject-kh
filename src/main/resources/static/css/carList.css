@@ -1,0 +1,300 @@
+@charset "UTF-8";
+
+html {
+	padding: 0px;
+	margin: 0px;
+}
+
+li > a:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+div {
+    display: block;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+ul.carList {
+    margin-top: 60px;
+}
+
+ul.carList > li:not(:nth-child(4n)) {
+    margin-right: 28px;
+}
+
+ul.carList > li {
+    display: inline-block;
+    vertical-align: top;
+    width: 270px;
+    height: 466px;
+    border: 1px solid #dee6ec;
+    margin-bottom: 25px;
+}
+
+#carbox {
+    display: block;
+    width: 100%;
+    height: 240px;
+}
+
+#cartext {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.listTitle{
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'nanum-square-r';
+    line-height: 26px;
+    letter-spacing: 1px;
+    text-align: left;
+    
+}
+.listContent{
+    color: #626262;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'nanum-square-r';
+    line-height: 26px;
+    letter-spacing: 1px;
+}
+.listPrice{
+    color:  #ff4040;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'nanum-square-r';
+    line-height: 26px;
+    letter-spacing: 1px;
+    text-align: right;
+}
+
+
+.listLabel {
+    color: #ec2a1c;
+    font-size: 32px;
+    font-weight: 600;
+    font-family: 'nanum-square-r';
+    line-height: 42px;
+}
+
+.carTitle > span.point {
+    color: #ec2a1c;
+    display: inline-block;
+}
+
+#cartext p.listLink {
+    width: 172px;
+    height: 45px;
+    line-height: 45px;
+    background-color: #ec2a1c;
+    color: #fff;
+    font-size: 18px;
+    margin: 20px auto 20px;
+}
+
+#centerimg {
+    display: block;
+    width: 1250px;
+    margin: 0 auto;
+}
+
+.mainvisual {
+    background-image: url(/resources/img/main.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 580px;
+    margin-bottom: 60px;
+}
+
+section.carSection ul.carList {
+    margin-top: 60px;
+}
+
+h2.carTitle {
+    color: #404040;
+    font-size: 36px;
+    line-height: 48px;
+    letter-spacing: -1px;
+    text-align: center;
+}
+
+
+#centertext {
+    display: block;
+    width: 100%;
+}
+
+label {
+    cursor: default;
+}
+
+button {
+    overflow: visible;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.calenderLabel {
+	padding-top: 488px;
+	margin: 0, auto;
+}
+
+.searchLabel {
+	display: inline-block;
+	height: 60px;
+    padding: 0 20px 0 8px;
+    position: relative;
+}
+
+.search {
+	display: inline-block;
+	height: 60px;
+	line-height: 60px;
+	padding: 0 20px 0 8px;
+	position: relative;
+    margin-top: 0;
+}
+
+.searchCategory {
+    text-align: left;
+}
+
+select {
+	width: 190px;
+	height: 23px;
+}
+
+.container {
+	display: block;
+    width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 200px;
+}
+
+a:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+.listtype {
+    display: table-cell;
+    width: 120px;    
+    text-align: center;
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 35px;
+    background-color: red;
+    position: relative;
+    cursor: pointer;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+.carlist {
+	width: 1200px;
+	border-spacing: 0 8px;
+}
+
+
+.listMenuTabs {
+	width: 1200px;
+}
+
+.carlistline {
+	background-color: #f1f4f7;
+	text-align: center;
+	color: #3e3e3e;
+	line-height: 40px;
+}
+
+.carlistheadline {
+	background-color: #aebfd0;
+	text-align: center;
+	color: #3e3e3e;
+	line-height: 40px;
+}
+
+.carlistprice {
+	text-align: right;;
+	padding-right: 46px;
+}
+
+.count {
+	color: red;
+}
+
+#caradd {
+	background-color: red;
+	margin-left: 195px;
+}
+
+h1 {
+	text-align: center;
+	color: red;
+}
+
+.body-wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
+footer {
+    width: 100%;
+    height: 300px;
+    position: absolute;  
+    bottom: 0;
+    left: 0;
+}
+
+#carlistline:hover {
+	color:red;
+}
+
+.topimg img {
+	display: block;
+    width: 100%;
+    margin: 0 auto;
+    height: 300px;
+}
+
+.icon {
+	vertical-align: -15px;
+}
+
+.searchimg {
+	vertical-align: -10px;
+}
+
+.carLabel:hover {
+	border: 1px solid red;
+}
