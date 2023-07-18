@@ -203,31 +203,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 <!--예약관련 SQL -->
 	<select id="carListTotalDao" resultType="com.rlagus.rentcar.dto.CarDto">
-		select * 
-    		from cartbl 
-       		 left join (select * 
-    						from rReservation
-       								  where rtdate <![CDATA[<=]]> #{param1} and
-                							returndate <![CDATA[>=]]> #{param1} or
-                							rtdate <![CDATA[<=]]> #{param2} and
-               								returndate <![CDATA[>=]]> #{param2})A
-             		on cartbl.cindex = A.cindex
-                		where A.cindex is null
+		select * from cartbl c
+		    left join (select * from rReservation
+					        where (rtdate <![CDATA[<=]]> #{param1} and returndate <![CDATA[>=]]> #{param1}
+					            	or rtdate <![CDATA[<=]]> #{param2} and returndate <![CDATA[>=]]> #{param2})
+					                	or (rtdate <![CDATA[>=]]> #{param1} and returndate <![CDATA[<=]]> #{param2})) a
+		            on c.cindex = a.cindex
+		                where a.cindex is null
 	</select>
 	<select id="carListClassDao" resultType="com.rlagus.rentcar.dto.CarDto">
 		select * from
-			(select * 
-    			from cartbl 
-       		 		left join (select * 
-    							from rReservation
-       								  where rtdate <![CDATA[<=]]> #{param1} and
-                							returndate <![CDATA[>=]]> #{param1} or
-                							rtdate <![CDATA[<=]]> #{param2} and
-               								returndate <![CDATA[>=]]> #{param2})A
-             			on cartbl.cindex = A.cindex
-                			where A.cindex is null) 
-            where cclass = #{param3} 
-               				 
+			(select * from cartbl c
+		    	left join (select * from rReservation
+					        where (rtdate <![CDATA[<=]]> #{param1} and returndate <![CDATA[>=]]> #{param1}
+					            	or rtdate <![CDATA[<=]]> #{param2} and returndate <![CDATA[>=]]> #{param2})
+					                	or (rtdate <![CDATA[>=]]> #{param1} and returndate <![CDATA[<=]]> #{param2})) a
+		            on c.cindex = a.cindex
+		                where a.cindex is null) 
+            where cclass = #{param3}               				 
 	</select>
 	<select id="carinfoDao" resultType="com.rlagus.rentcar.dto.CarDto">
 		select * from cartbl where cindex = #{param1}
