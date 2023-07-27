@@ -3,7 +3,9 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="com.rlagus.rentcar.dao.IDao">
+
 <!-- 회원관리 관련 SQL -->
 	<insert id="joinDao">
 		insert into rMember(rid, rpw, rname, rmobile, remail) values (#{param1}, #{param2}, #{param3}, #{param4}, #{param5})

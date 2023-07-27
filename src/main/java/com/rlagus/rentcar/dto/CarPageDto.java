@@ -21,19 +21,19 @@ public class CarPageDto {
 		 this.carcriteria = carcriteria;
 		 this.total = total;
 		 
-		 this.endPage = (int) (Math.ceil(carcriteria.getPageNum()/(carcriteria.getAmount()*1.0))*carcriteria.getAmount()); //ceil -> 올림
+		 this.endPage = (int) (Math.ceil(carcriteria.getPageNum()/(carcriteria.getPageGroup()*1.0))*carcriteria.getPageGroup()); //ceil -> 올림
 		 //    	1 2 3 4 5  next
 		 // prev 6 7 8 9 10 next
 		 // prev 11
-		 this.startPage = this.endPage - (carcriteria.getAmount()-1);
+		 this.startPage = this.endPage - (carcriteria.getPageGroup() - 1);
 		 
-		 int realEndPage = (int) Math.ceil(total*1.0 / 10); // 전체 페이지 개수 (전체 글의 수 / 한페이지당 봅여줄 글의 개수 )= 올림한값 - 실제 끝페이지
+		 int realEndPage = (int) Math.ceil(total*1.0 / carcriteria.getAmount()); // 전체 페이지 개수 (전체 글의 수 / 한페이지당 봅여줄 글의 개수 )= 올림한값 - 실제 끝페이지
 		 
 		 if(realEndPage < this.endPage) {
 			 this.endPage = realEndPage;
 		 }// 처음계산한 마지막 페이지의 값인 end 값보다 realEndPage 값이 작게 나오면  그 값으로 대신해야 마지막 페이지 값이 마지막페이지 번호로 출력됨
 		 
-		 this.prev = this.startPage > carcriteria.getAmount();
+		 this.prev = this.startPage > carcriteria.getPageGroup();
 		 // 시작페이지 번호가 5보다 크면 prev 가 존재해야함
 		 this.next = this.endPage < realEndPage; ;
 		 // 마지막 페이지 번호가 실제 페이지 번호보다 작은 경우에만 next가 존재해야 함

@@ -33,13 +33,12 @@ public class freeBoardController {
 	
 	@RequestMapping(value = "/freeWriteOk")
 	public String freeWriteOK(HttpServletRequest request) {
+		
 		String rid = request.getParameter("rid");
 		String rfbtitle = request.getParameter("rfbtitle");
 		String rfbcontent = request.getParameter("rfbcontent");
 		
-		IDao dao = sqlSession.getMapper(IDao.class);
-		
-		
+		IDao dao = sqlSession.getMapper(IDao.class);		
 		dao.freeBoardWriteDao(rid, rfbtitle, rfbcontent);
 		
 		if(rid.equals("admin")) {
@@ -110,14 +109,13 @@ public class freeBoardController {
 	@RequestMapping(value = "/freeSearchList")
 	public String freeSearchList(Model model, HttpServletRequest request, Criteria criteria) {
 		
-		int pageNum=0;
+		int pageNum;
 		if(request.getParameter("pageNum") == null) {
 			pageNum = 1;
 		}else {
 			pageNum = Integer.parseInt(request.getParameter("pageNum"));
 			criteria.setPageNum(pageNum);
-		}
-		
+		}		
 		
 		String searchOption	 = request.getParameter("searchOption");
 		String keyWord = request.getParameter("keyWord");

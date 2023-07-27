@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+#top_img {
+	display: block;
+    width: 100%;
+    margin: 0 auto;
+    height: 300px;
+}
+
+#content_tilte {
+	font-size: 36px;
+	text-align: center;
+	color: #3e3e3e;
+}
+
+#content_box {
+	width: 1000px;
+	display: block;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#content_box div, form {
+	display: inline-block;
+}
+
+#content_box div {
+	float: left;	
+}
+
+#content_box form {
+	float: right;
+}
+
+#countNum {
+	color: blue;
+	font-weight: bold;
+}
+
+.search_option {
+	height: 25px;
+	width: 80px;
+	margin-top: 15px;
+}
+
+.search_input {
+	height: 20px;
+	margin-top: 15px;
+	margin-left: 10px;
+}
+
+.search_btn {
+	height: 27px;
+	margin-top: 15px;	
+	margin-left: 10px;
+}
+
+.search_write{
+	height: 27px;
+	margin-top: 15px;
+	margin-left: 20px;
+}
+
+#content_div {
+	width: 1000px;
+	display: block;
+	margin: 0 auto;
+}
+
+#content_table {
+	width: 100%;
+	margin: 0 auto;
+	border-bottom: 2px solid #d1d1d1;
+}
+
+#table_head {
+	background-color: #d1d1d1;
+	line-height: 35px;
+}
+
+#content_table td {
+	line-height: 50px;
+}
+
+.col1 {
+	text-align: center;
+	width: 8%;
+}
+
+.col2 {
+	padding-left: 50px;
+}
+
+.col3 {
+	text-align: center;
+	width: 10%;
+}
+
+.col4 {
+	text-align: center;
+	width: 10%;
+}
+
+.col5 {
+	text-align: center;
+	width: 8%;
+}
+
+#reply_count {
+	color: #808080;
+	font-size: 13px;
+	margin-left: 10px;
+}
+
+#page_table {
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+	padding-bottom: 30px;
+}
+
+#page_num {
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: #d1d1d1;
+}
+
+#page_btn {
+	padding-left: 10px;
+	padding-right: 10px;
+}
